@@ -2,12 +2,40 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="plantilla/template :: head"></head>
 	
-	<body>	
+	<body class="container">	
 		
 		<!-- Navbar with 3 buttons inherited from (plantilla/template.html) -->
 		<div th:replace="plantilla/template :: navbar"></div>	
 		
-		<h4>Add Attendance Item</h4>
+		<br>
+		
+		<h4><b>Add Attendance Item</b></h4>
+		<ul class="nav nav-tabs"></ul>
+		
+		<br>
+		
+		<form>
+			<a>Attendance Item Name</a>
+			<br>
+			<input type="text">
+			
+			<br>
+			<br>
+			
+			<a>Attendance Item Date</a>
+			<br>
+			<input type="date" id="fecha" name="fecha">
+			<input type="text" size="1" maxlength="2">
+			<a> :  </a>
+			<input type="text" size="1" maxlength="2">
+			
+			<br>
+			<br>
+			
+			<button type="button" class="btn btn-outline-dark">Create</button>
+			<button type="button" class="btn btn-outline-dark">Create & Add Another</button>
+			<button type="button" class="btn btn-outline-dark">Cancel</button>
+		</form>
 		
 		<!-- Footer with a script of JavaScript -->
 		<footer th:replace="plantilla/template :: footer"></footer>
