@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< HEAD
 	<head th:replace="plantilla/template :: head"></head>
 	
 	<body class="container">	
@@ -7,22 +8,62 @@
 		<!-- (header) Navbar with 3 buttons inherited from (plantilla/template.html) -->
 		<header th:replace="plantilla/template :: navbar"></header>	
 		
+=======
+<head th:replace="plantilla/template :: head"></head>
+
+<body class="container">
+
+	<!-- (header) Navbar with 3 buttons inherited from (plantilla/template.html) -->
+	<header th:replace="plantilla/template :: navbar"></header>
+
+
+
+	<div class="container">
+		<br>
+>>>>>>> 75a2852446f9b78ecd2b3c2d7c8f4bdcf1143a50
 		<h2>Export</h2>
-		
-		<div class="container">
-		
-			<form th:action="@{#}" th:object="${attendance}" method="POST"></form>
-		
-		
-		</div>
-		
-		
-		<a class="btn btn-primary btn-dark"
-			th:href="@{/views/add}" th:text="'Take Attendance Now'"
-			></a>
+		<br>
+		<form th:action="@{#}" th:object="${attendance}" method="POST">
 
-		<!-- Footer with a script of JavaScript -->
-		<footer th:replace="plantilla/template :: footer"></footer>
+			<label><input type="checkbox" th:value="include">Include
+				columns in exported file for attendance comments</label> <br><br>
+				<label><input
+				type="checkbox" th:value="noInclude">Export blank atendance
+				spreadsheet</label> <br><br> <input type="submit"
+				value="Export Attendance Sheet">
 
-	</body>
+
+
+		</form>
+
+
+	</div>
+	
+	<hr>
+
+	<div class="container">
+		
+		<h2>Import</h2>
+		<br>
+		<form th:action="@{#}" th:object="${attendance}" method="POST">
+
+
+			<input type="file" th:name="imports"> <br><br>
+			 
+			<input type="submit" value="Import Attendance Sheet">
+
+
+
+		</form>
+
+
+	</div>
+
+
+
+
+	<!-- Footer with a script of JavaScript -->
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
 </html>

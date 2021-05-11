@@ -7,13 +7,24 @@
 		<!-- (header) Navbar with 3 buttons inherited from (plantilla/template.html) -->
 		<header th:replace="plantilla/template :: navbar"></header>	
 		
+		<br>
+		
 		<h1>Take Attendance</h1>
+		
+		<br>
 		
 		<h4>Click on the <strong>Take attendance Now</strong> button to immediately take attendance. Click on a link below to take attendance for an existing event.</h4>
 		
+		<br>
+		
 		<a class="btn btn-primary btn-dark"
 			th:href="@{/views/add}" th:text="'Take Attendance Now'"
+<<<<<<< HEAD
 			></a>
+=======
+			></a> <br><br>
+			
+>>>>>>> 75a2852446f9b78ecd2b3c2d7c8f4bdcf1143a50
 			
 		<table class="table">
   			<thead>
@@ -31,7 +42,12 @@
   			<tbody>
     			<tr th:each="a: ${attendance}">	
 					<th scope="row" th:text="${a.name}"></th>
+<<<<<<< HEAD
 					<td th:text="${a.present}"></td>
+=======
+					
+					<td  th:text="${a.present}" th:href="@{/check/{id}}"></td>
+>>>>>>> 75a2852446f9b78ecd2b3c2d7c8f4bdcf1143a50
 					<td th:text="${a.absent}"></td>
 					<td th:text="${a.excused}"></td>
 					<td th:text="${a.late}"></td>
