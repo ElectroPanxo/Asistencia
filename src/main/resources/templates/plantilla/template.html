@@ -2,19 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head th:fragment = "head">
 		<meta charset="UTF-8">
-		<title>Asistencias</title>
+		<title>Attendance</title>
 		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 	</head>
 
 	<body>
-		<div th:fragment = "navbar">
+		<header th:fragment = "navbar">
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link"
-				aria-current="page" href="#">Add</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Attendance</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Attendance By Student</a></li>
+				aria-current="page" href="/views/add">Add</a></li>
+				<li class="nav-item"><a class="nav-link" href="/views/attendance">Attendance</a></li>
+				<li class="nav-item"><a class="nav-link" href="/views/attendanceStudent">Attendance By Student</a></li>
+				<li class="nav-item"><a class="nav-link" href="/views/exportImport">Export/Import</a></li>
 			</ul>
-		</div>
+		</header>
 		
 	<footer th:fragment = "footer">
 		<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
