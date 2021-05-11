@@ -47,5 +47,9 @@ public class AttendanceController {
 		return "views/exportImport";
 	}
 	
+	@GetMapping("/check/{id}")
+	public String check() {
+		return null;
+	}
 
 }
