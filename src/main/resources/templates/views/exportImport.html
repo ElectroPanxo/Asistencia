@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="plantilla/template :: head"></head>
+	
+	<body class="container">	
+		
+		<!-- (header) Navbar with 3 buttons inherited from (plantilla/template.html) -->
+		<header th:replace="plantilla/template :: navbar"></header>	
+		
+		<h2>Export</h2>
+		
+		<div class="container">
+		
+			<form th:action="@{#}" th:object="${attendance}" method="POST"></form>
+		
+		
+		</div>
+		
+		
+		<a class="btn btn-primary btn-dark"
+			th:href="@{/views/add}" th:text="'Take Attendance Now'"
+			></a>
+
+		<!-- Footer with a script of JavaScript -->
+		<footer th:replace="plantilla/template :: footer"></footer>
+
+	</body>
+</html>

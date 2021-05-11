@@ -2,10 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="plantilla/template :: head"></head>
 	
-	<body>	
+	<body class="container">	
 		
-		<!-- Navbar with 3 buttons inherited from (plantilla/template.html) -->
-		<div th:replace="plantilla/template :: navbar"></div>	
+		<!-- (header) Navbar with 3 buttons inherited from (plantilla/template.html) -->
+		<header th:replace="plantilla/template :: navbar"></header>	
+		
+		<h1>Take Attendance</h1>
+		
+		<h4>Click on the <strong>Take attendance Now</strong> button to immediately take attendance. Click on a link below to take attendance for an existing event.</h4>
+		
+		<a class="btn btn-primary btn-dark"
+			th:href="@{/views/add}" th:text="'Take Attendance Now'"
+			></a>
+			
+		<table class="table">
+  			<thead>
+    			<tr>
+					<th scope="col">Attendance Item</th>
+     			    <th scope="col">Date</th>
+      				<th scope="col">Present</th>
+      				<th scope="col">Absent</th>
+      				<th scope="col">Excused</th>
+      				<th scope="col">Late</th>
+      				<th scope="col">Left Early</th>
+    			</tr>
+  			</thead>
+  			
+  			<tbody>
+    			<tr th:each="a: ${attendance}">	
+					<th scope="row" th:text="${a.name}"></th>
+					<td th:text="${a.present}"></td>
+					<td th:text="${a.absent}"></td>
+					<td th:text="${a.excused}"></td>
+					<td th:text="${a.late}"></td>
+					<td th:text="${a.leftEarly}"></td>		
+				</tr>
+  
+  			</tbody>
+		</table>
 		
 		<!-- Footer with a script of JavaScript -->
 		<footer th:replace="plantilla/template :: footer"></footer>

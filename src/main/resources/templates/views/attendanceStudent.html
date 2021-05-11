@@ -2,10 +2,46 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="plantilla/template :: head"></head>
 	
-	<body>	
+	<body class="container">	
 		
 		<!-- Navbar with 3 buttons inherited from (plantilla/template.html) -->
-		<div th:replace="plantilla/template :: navbar"></div>	
+		<div th:replace="plantilla/template :: navbar"></div>
+		
+		<br>
+		
+		<h4><b>Student Overview</b></h4>
+		<a>This page displays a report that attendance totals for each student and allows for grading</a>
+		
+		<br>
+		<br>
+		
+		<table class="table">
+  			<thead>
+    			<tr>
+    				<th scope="col">Student Photo</th>
+					<th scope="col">Student Name</th>
+     			    <th scope="col">Date</th>
+      				<th scope="col">Present</th>
+      				<th scope="col">Absent</th>
+      				<th scope="col">Excused</th>
+      				<th scope="col">Late</th>
+      				<th scope="col">Left Early</th>
+    			</tr>
+  			</thead>
+  			
+  			<tbody>
+    			<tr th:each="s: ${student}">	
+    				<th scope="row" th:text="${s.photo}"></th>
+					<td th:text="${s.name}"></td>
+					<td th:text="${s.present}"></td>
+					<td th:text="${s.absent}"></td>
+					<td th:text="${s.excused}"></td>
+					<td th:text="${s.late}"></td>
+					<td th:text="${s.leftEarly}"></td>		
+				</tr>
+  
+  			</tbody>
+		</table>
 		
 		<!-- Footer with a script of JavaScript -->
 		<footer th:replace="plantilla/template :: footer"></footer>
