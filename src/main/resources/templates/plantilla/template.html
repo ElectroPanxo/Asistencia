@@ -5,25 +5,23 @@
 		<title>Asistencias</title>
 		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 	</head>
-	
+
 	<body>
-
 		<div th:fragment = "navbar">
-			<nav class="navbar navbar-light bg-light">
-				<div class="container-fluid justify-content-start">
-					<button class="btn btn-sm btn-outline-secondary" type="button">Add</button>
-					<button class="btn btn-sm btn-outline-secondary" type="button">Attendance</button>
-					<button class="btn btn-sm btn-outline-secondary" type="button">Attendance By Student</button>
-				</div>
-			<nav>
+			<ul class="nav nav-tabs">
+				<li class="nav-item"><a class="nav-link"
+				aria-current="page" href="#">Add</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Attendance</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Attendance By Student</a></li>
+			</ul>
 		</div>
-
+		
 	<footer th:fragment = "footer">
-			<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
-			<script type="text/javascript" th:src="@{/js/bootstrap.popper.min.js}"></script>
-			<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-		</footer>
+		<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+	</footer>
 
-	</body>
-	
+</body>
+
 </html>
