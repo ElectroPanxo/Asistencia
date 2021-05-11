@@ -14,11 +14,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "attendance")
+@Table(name = "student")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Attendance implements Serializable {
+public class Student implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -28,6 +28,8 @@ public class Attendance implements Serializable {
 	private Long id;
 	
 	@NotEmpty
+	private String photo;
+	
 	private String name;
 	
 	private int present;

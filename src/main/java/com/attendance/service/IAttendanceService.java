@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.attendance.entity.Attendance;
 
-
-
 public interface IAttendanceService {
 
 	public List<Attendance> listarTodos();
