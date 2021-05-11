@@ -1,4 +1,4 @@
-package com.asistencia.controller;
+package com.attendance.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
