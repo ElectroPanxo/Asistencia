@@ -9,22 +9,24 @@
 		
 		<br>
 		
-		<h1>Take Attendance</h1>
+		<h4><b>Take Attendance</b></h4>
+		<ul class="nav nav-tabs"></ul>
 		
 		<br>
 		
-		<h4>Click on the <strong>Take attendance Now</strong> button to immediately take attendance. Click on a link below to take attendance for an existing event.</h4>
+		<a>Click on the <strong>Take attendance Now</strong> button to immediately take attendance. Click on a link below to take attendance for an existing event.</a>
 		
 		<br>
+		<br>
 		
-		<a class="btn btn-primary btn-dark"
-			th:href="@{/views/add}" th:text="'Take Attendance Now'"
-<<<<<<< HEAD
-			></a>
-=======
-			></a> <br><br>
+		<button type="button"
+				class="btn btn-outline-dark"
+				th:href="@{/views/add}" 
+				th:text="'Take Attendance Now'"></button>
+
+		<br>
+		<br>
 			
->>>>>>> 75a2852446f9b78ecd2b3c2d7c8f4bdcf1143a50
 			
 		<table class="table">
   			<thead>
@@ -42,12 +44,8 @@
   			<tbody>
     			<tr th:each="a: ${attendance}">	
 					<th scope="row" th:text="${a.name}"></th>
-<<<<<<< HEAD
-					<td th:text="${a.present}"></td>
-=======
-					
+					<td th:text="${a.present}"></td>		
 					<td  th:text="${a.present}" th:href="@{/check/{id}}"></td>
->>>>>>> 75a2852446f9b78ecd2b3c2d7c8f4bdcf1143a50
 					<td th:text="${a.absent}"></td>
 					<td th:text="${a.excused}"></td>
 					<td th:text="${a.late}"></td>
