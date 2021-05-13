@@ -14,27 +14,31 @@
 		
 		<br>
 		
-		<form>
+		<form th:action="@{/views/edit}" th:object="${attendance}" method="post">
 			<a>Attendance Item Name</a>
 			<br>
-			<input type="text">
+			<input type="text"
+				   name="name"
+				   id="name"
+				   placeholder="ex. Class Meeting 1"> 
+				   
+			
 			
 			<br>
 			<br>
 			
 			<a>Attendance Item Date</a>
 			<br>
-			<input type="date" id="fecha" name="fecha">
-			<input type="text" size="1" maxlength="2">
-			<a> :  </a>
-			<input type="text" size="1" maxlength="2">
+			<input type="datetime-local"			
+				   id="dateTime"
+				   name="dateTime">
 			
 			<br>
 			<br>
 			
-			<button type="button" class="btn btn-outline-dark">Create</button>
-			<button type="button" class="btn btn-outline-dark">Create & Add Another</button>
-			<button type="button" class="btn btn-outline-dark">Cancel</button>
+			<button type="submit" name="action" value="save" class="btn btn-outline-dark">Create</button>
+			<button type="submit" name="action" value="saveOther" class="btn btn-outline-dark">Create & Add Another</button>
+			<button type="submit" name="action" value="cancel" class="btn btn-outline-dark">Cancel</button>
 		</form>
 		
 		<!-- Footer with a script of JavaScript -->

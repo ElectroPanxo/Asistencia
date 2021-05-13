@@ -19,10 +19,10 @@
 		<br>
 		<br>
 		
-		<button type="button"
+		<a type="button"
 				class="btn btn-outline-dark"
-				th:href="@{/views/add}" 
-				th:text="'Take Attendance Now'"></button>
+				href="/views/add" 
+				th:text="'Take Attendance Now'"></a>
 
 		<br>
 		<br>
@@ -43,9 +43,10 @@
   			
   			<tbody>
     			<tr th:each="a: ${attendance}">	
-					<th scope="row" th:text="${a.name}"></th>
-					<td th:text="${a.present}"></td>		
-					<td  th:text="${a.present}" th:href="@{/check/{id}}"></td>
+    				<th scope="row" ><a
+                        th:href="@{index/} + ${a.id}" th:text="${a.name}"></a></th>
+					<td th:text="${a.checkDate()}"></td>		
+					<td th:text="${a.present}" th:href="@{/check/{id}}"></td>
 					<td th:text="${a.absent}"></td>
 					<td th:text="${a.excused}"></td>
 					<td th:text="${a.late}"></td>

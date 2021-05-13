@@ -1,6 +1,9 @@
 package com.attendance.entity;
 
 import java.io.Serializable;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,14 +33,32 @@ public class Attendance implements Serializable {
 	@NotEmpty
 	private String name;
 	
+	@NotEmpty
 	private int present;
 	
+	@NotEmpty
 	private int absent;
 	
+	@NotEmpty
 	private int excused;
 	
+	@NotEmpty
 	private int late;
 	
+	@NotEmpty
 	private int leftEarly;
+	
+	@NotEmpty
+	private Date dateTime;
+	
+	@NotEmpty
+	public String checkDate() {
+	       
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
+       
+        String date = formatter.format(this.dateTime);
+       
+        return date;
+    }
 	
 }
