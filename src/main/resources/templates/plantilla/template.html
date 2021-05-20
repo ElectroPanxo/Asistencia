@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+	<!-- Fragment that is used on all views named "head" -->
 	<head th:fragment = "head">
 		<meta charset="UTF-8">
 		<title>Attendance</title>
-		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-		<link rel="stylesheet" th:href="@{/css/custom.css}">
 		
+		<!-- Link to (/css/...) where the ".css" are -->
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/css/custom.css}">		
 	</head>
 
 	<body>
 
+		<!-- Fragment that is used on all views named "navbar" -->
 		<header th:fragment = "navbar">
+		
+			<!-- Navbar using Bootstrap v5.0 -->
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link"
 				aria-current="page" href="/views/add">Add</a></li>
@@ -18,8 +24,10 @@
 				<li class="nav-item"><a class="nav-link" href="/views/attendanceStudent">Attendance By Student</a></li>
 				<li class="nav-item"><a class="nav-link" href="/views/exportImport">Export/Import</a></li>
 			</ul>
+			
 		</header>
 		
+		<!-- Fragment that has 3 scripts type "text/javascript" with a link to (/js/...) where ".js" are -->
 		<footer th:fragment = "footer">
 			<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 			<script type="text/javascript" th:src="@{/js/bootstrap.popper.min.js}"></script>
