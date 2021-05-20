@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+	<!-- th:replace to use the head of our template -->
 	<head th:replace="plantilla/template :: head"></head>
 	
 	<body class="container">	
 		
-		<!-- Navbar with 3 buttons inherited from (plantilla/template.html) -->
+		<!-- Navbar with 4 buttons inherited from (plantilla/template.html) -->
 		<div th:replace="plantilla/template :: navbar"></div>
 		
 		<br>
@@ -18,12 +20,12 @@
 		<br>
 		<br>
 		
+		<!-- Table which has the data of student -->
 		<table class="table">
   			<thead>
     			<tr>
     				<th scope="col">Student Photo</th>
 					<th scope="col">Student Name</th>
-     			    <th scope="col">Date</th>
       				<th scope="col">Present</th>
       				<th scope="col">Absent</th>
       				<th scope="col">Excused</th>
@@ -32,21 +34,36 @@
     			</tr>
   			</thead>
   			
+  			<!-- th:each that creates a loop that lists all students from object student -->
   			<tbody>
     			<tr th:each="s: ${student}">	
+    			
+    				<!-- () -->
     				<th scope="row" th:text="${s.photo}"></th>
+    				
+    				<!-- (s.name equals to name of the student) -->
 					<td th:text="${s.name}"></td>
+					
+					<!-- (s.present equals to present of the student) -->
 					<td th:text="${s.present}"></td>
+					
+					<!-- (s.absent equals to absent of the student) -->
 					<td th:text="${s.absent}"></td>
+					
+					<!-- (s.excused equals to excused of the student) -->
 					<td th:text="${s.excused}"></td>
+					
+					<!-- (s.late equals to late of the student) -->
 					<td th:text="${s.late}"></td>
+					
+					<!-- (s.leftEarly equals to leftEarly of the student) -->
 					<td th:text="${s.leftEarly}"></td>		
 				</tr>
   
   			</tbody>
 		</table>
 		
-		<!-- Footer with a script of JavaScript -->
+		<!-- Footer with 3 scripts of JavaScript -->
 		<footer th:replace="plantilla/template :: footer"></footer>
 
 	</body>

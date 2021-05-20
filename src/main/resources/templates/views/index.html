@@ -1,13 +1,121 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+	<!-- th:replace to use the head of our template -->
 	<head th:replace="plantilla/template :: head"></head>
 	
 	<body class="container">	
 		
-		<!-- Navbar with 3 buttons inherited from (plantilla/template.html) -->
+		<!-- Navbar with 4 buttons inherited from (plantilla/template.html) -->
 		<div th:replace="plantilla/template :: navbar"></div>	
 		
-		<h4>Attendance </h4> <h4 th:text="${fecha}"></h4>
+		<br>
+		
+		<div class="bold">
+			<a class="me-2 link" th:text="${name}"></a>
+			<a th:text="${date}"></a>
+			
+			
+			<img class="pencil" src="/images/pencil.png">
+			
+		</div>
+		
+		<p class="take">Take Attendance</p>
+		
+		<ul class="nav nav-tabs"></ul>
+		
+		<br>
+		
+		<!-- Table which has the data of student -->
+		<table class="table table-hover center">
+  			<thead>
+    			<tr>
+    				<th scope="col">Student Photo</th>
+					<th scope="col">Student Name</th>
+      				<th scope="col">Present</th>
+      				<th scope="col">Absent</th>
+      				<th scope="col">Excused</th>
+      				<th scope="col">Late</th>
+      				<th scope="col">Left Early</th>
+      				<th scope="col">Comments</th>
+    			</tr>
+  			</thead>
+  			
+  			<!-- th:each that creates a loop that lists all students from object student -->
+  			<tbody>
+    			<tr th:each="s: ${student}">	
+    			
+    				<!-- () -->
+    				<th scope="row" th:text="${s.photo}"></th>
+    				
+    				<!-- (s.name equals to name of the student) -->
+					<td th:text="${s.name}"></td>
+					
+					<!-- (s.present equals to present of the student) -->
+					<td>
+						<img class="checkmark" src="/images/checkmark.png">
+					</td>
+					
+					<!-- (s.absent equals to absent of the student) -->
+					<td>
+						<img class="crossmark" src="/images/crossmark.png">
+					</td>
+					
+					<!-- (s.excused equals to excused of the student) -->
+					<td>
+						<img class="circle" src="/images/circle.png">
+					</td>
+					
+					<!-- (s.late equals to late of the student) -->
+					<td>
+						<img class="clock" src="/images/clock.png">
+					</td>
+					
+					<!-- (s.leftEarly equals to leftEarly of the student) -->
+					<td>
+						<img class="exit" src="/images/exit.png">
+					</td>
+					
+					<!-- (s.leftEarly equals to leftEarly of the student) -->
+					<td>
+						<img class="booble" src="/images/booble.png">
+					</td>		
+				</tr>
+  
+  			</tbody>
+		</table>
+		
+		<br>
+		<br>
+		<a class="take link">Attendance Item Statistics</a>
+		<img class="refresh" src="/images/refresh.png">
+		
+		<ul class="nav nav-tabs"></ul>
+		
+		<br>
+		
+		<table class="table-sm tabla2">
+  			<thead>
+    			<tr>
+      				<th class="th2" scope="col">Present</th>
+      				<th class="th2" scope="col">Absent</th>
+      				<th class="th2" scope="col">Excused</th>
+      				<th class="th2" scope="col">Late</th>
+      				<th class="th2" scope="col">Left Early</th>
+    			</tr>
+  			</thead>
+  			
+  			<tbody>
+  				<tr>
+  					<td class="th2" th:text="${present}"></td>
+  					<td class="th2" th:text="${absent}"></td>
+  					<td class="th2" th:text="${excused}"></td>
+  					<td class="th2" th:text="${late}"></td>
+  					<td class="th2" th:text="${leftEarly}"></td>
+  				</tr>
+  			</tbody>
+  		</table>
+		
 				
 		<!-- Footer with 3 scripts of JavaScript -->
 		<footer th:replace="plantilla/template :: footer"></footer>

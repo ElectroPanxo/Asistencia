@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+	<!-- th:replace to use the head of our template -->
 	<head th:replace="plantilla/template :: head"></head>
 	
 	<body class="container">	
 		
-		<!-- Navbar with 3 buttons inherited from (plantilla/template.html) -->
+		<!-- Navbar with 4 buttons inherited from (plantilla/template.html) -->
 		<div th:replace="plantilla/template :: navbar"></div>	
 		
 		<br>
@@ -14,34 +16,39 @@
 		
 		<br>
 		
+		<!-- Form that redirects to (/views/edit) on controller using attendance object obtainer from method
+		 	 "add" that creates an instance of attendance and this form use the object -->
 		<form th:action="@{/views/edit}" th:object="${attendance}" method="post">
 			<a>Attendance Item Name</a>
 			<br>
+			
+			<!-- Input that allows the user to write name and th:field to use the attribute "name" -->
 			<input type="text"
-				   name="name"
-				   id="name"
+				   th:field="*{name}"
 				   placeholder="ex. Class Meeting 1"> 
-				   
-			
-			
+				   	   
 			<br>
 			<br>
 			
 			<a>Attendance Item Date</a>
 			<br>
-			<input type="datetime-local"			
-				   id="dateTime"
-				   name="dateTime">
+			
+			<!-- Input that allows the user to choose a Date and a Time, th:field to use the attribute
+				 "dateTime" -->
+			<input type="datetime-local"
+				   th:field="*{dateTime}">
 			
 			<br>
 			<br>
 			
+			<!-- Three buttons type submit to send the data from the 2 inputs to (/views/edit), value=""
+			     it is different depending on the button  -->
 			<button type="submit" name="action" value="save" class="btn btn-outline-dark">Create</button>
 			<button type="submit" name="action" value="saveOther" class="btn btn-outline-dark">Create & Add Another</button>
 			<button type="submit" name="action" value="cancel" class="btn btn-outline-dark">Cancel</button>
 		</form>
 		
-		<!-- Footer with a script of JavaScript -->
+		<!-- Footer with 3 scripts of JavaScript -->
 		<footer th:replace="plantilla/template :: footer"></footer>
 
 	</body>

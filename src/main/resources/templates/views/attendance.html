@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+	<!-- th:replace to use the head of our template -->
 	<head th:replace="plantilla/template :: head"></head>
 	
 	<body class="container">	
 		
-		<!-- (header) Navbar with 3 buttons inherited from (plantilla/template.html) -->
-		<header th:replace="plantilla/template :: navbar"></header>	
+		<!-- Navbar with 4 buttons inherited from (plantilla/template.html) -->
+		<div th:replace="plantilla/template :: navbar"></div>	
 		
 		<br>
 		
@@ -19,6 +21,7 @@
 		<br>
 		<br>
 		
+		<!-- Button which redirects to the (add.html) view -->
 		<a type="button"
 				class="btn btn-outline-dark"
 				href="/views/add" 
@@ -27,7 +30,7 @@
 		<br>
 		<br>
 			
-			
+		<!-- Table which has the data of attendance -->
 		<table class="table">
   			<thead>
     			<tr>
@@ -42,21 +45,38 @@
   			</thead>
   			
   			<tbody>
+  			
+  				<!-- th:each that creates a loop that lists all attendances from object attendances -->
     			<tr th:each="a: ${attendance}">	
+    			
+    				<!-- Field which redirects to the "index.html" depending on the id of the row selected
+    					 (a.name equals to name of the attendance) -->
     				<th scope="row" ><a
                         th:href="@{index/} + ${a.id}" th:text="${a.name}"></a></th>
-					<td th:text="${a.checkDate()}"></td>		
-					<td th:text="${a.present}" th:href="@{/check/{id}}"></td>
+                        
+                    <!-- Field that use the method [checkDate()] to format the Date -->    
+					<td th:text="${a.checkDate()}"></td>	
+					
+					<!-- (a.present equals to present of the attendance) -->	
+					<td th:text="${a.present}"></td>
+					
+					<!-- (a.absent equals to absent of the attendance) -->
 					<td th:text="${a.absent}"></td>
+					
+					<!-- (a.excused equals to excused of the attendance) -->
 					<td th:text="${a.excused}"></td>
+					
+					<!-- (a.late equals to late of the attendance) -->
 					<td th:text="${a.late}"></td>
+					
+					<!-- (a.leftEarly equals to leftEarly of the attendance) -->
 					<td th:text="${a.leftEarly}"></td>		
 				</tr>
   
   			</tbody>
 		</table>
 		
-		<!-- Footer with a script of JavaScript -->
+		<!-- Footer with 3 scripts of JavaScript -->
 		<footer th:replace="plantilla/template :: footer"></footer>
 
 	</body>

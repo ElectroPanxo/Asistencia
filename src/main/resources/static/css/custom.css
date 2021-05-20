@@ -1,0 +1,102 @@
+.link, .link:hover{
+	color:black;
+	text-decoration: none;
+}
+
+.bold{
+	font-weight:bold;
+	font-size:20px;
+	margin-bottom:10px;
+}
+
+.pencil{
+	width:25px;
+	margin-left:10px;
+}
+
+.take{
+	margin-top:20px;
+	font-size:20px;
+	margin-left:60px;
+}
+
+.checkmark{
+	filter: grayscale(100%);
+	transition: all 1s;
+	width:23px;
+}
+
+.crossmark{
+	filter: grayscale(100%);
+	width:23px;
+}
+
+.circle{
+	filter: grayscale(100%);
+	transition: all 1s;
+	width:23px;
+}
+
+.clock{
+	filter: grayscale(100%);
+	transition: all 1s;
+	width:23px;
+}
+
+.exit{
+	filter: grayscale(100%);
+	transition: all 1s;
+	width:23px;
+}
+
+.booble{
+	filter: grayscale(100%);
+	transition: all 1s;
+	width:23px;
+}
+
+.checkmark:hover, .checkmark:focus{
+	filter: sepia(1) hue-rotate(74deg);
+}
+
+.crossmark:hover{
+	filter: invert(24%) sepia(64%) saturate(7358%) hue-rotate(354deg) brightness(99%) contrast(126%);
+}
+
+.circle:hover{
+	filter: invert(59%) sepia(21%) saturate(4913%) hue-rotate(154deg) brightness(107%) contrast(101%);
+}
+
+.clock:hover{
+	filter: invert(81%) sepia(50%) saturate(6473%) hue-rotate(1deg) brightness(104%) contrast(103%);
+}
+
+.exit:hover{
+	filter: invert(29%) sepia(67%) saturate(4747%) hue-rotate(258deg) brightness(99%) contrast(111%);
+}
+
+.booble:hover{
+	filter: invert(25%) sepia(71%) saturate(1862%) hue-rotate(156deg) brightness(87%) contrast(106%);
+}
+
+.tabla2{
+	  table-layout: fixed;
+	  text-align:center;
+	  width:450px;
+  	  border-collapse: collapse;
+  	  border: 3px solid #4d4d4d;
+  	  margin-left:60px;
+}
+
+.th2, .td2{
+	border: 1px solid #dddddd;
+}
+
+.center{
+	text-align:center;
+}
+
+.refresh{
+	padding-bottom:5px;
+	padding-left:8px;
+}
