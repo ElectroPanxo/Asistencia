@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -54,6 +55,7 @@ public class AttendanceController {
 		Integer excused = attendance.getExcused();
 		Integer late = attendance.getLate();
 		Integer leftEarly = attendance.getLeftEarly();
+		Long id = attendance.getId();
 				
 		// Import the model studentList to "attendanceStudent.html" that has the list of Students
 		model.addAttribute("student", studentList);
@@ -66,6 +68,7 @@ public class AttendanceController {
 		model.addAttribute("excused", excused);
 		model.addAttribute("late", late);
 		model.addAttribute("leftEarly", leftEarly);
+		model.addAttribute("id", id);
 		
 		return "views/index";
 	}
@@ -86,9 +89,12 @@ public class AttendanceController {
 	/* Controller to the button "Create" that saves the object and redirects to our attendances list
 	 * (params="actions=save") equals to (value="save") of "add.html"
 	 */
-	@RequestMapping(value="/edit", method=RequestMethod.POST, params="action=save")
+	@RequestMapping(value="/save", method=RequestMethod.POST, params="action=save")
 	public String save(@Valid @ModelAttribute Attendance miAttendance, BindingResult result, Model model) {
 		
+		if(result.hasErrors()) {
+			return "views/add";
+		}
 		// Save the attendance with the name and LocalDateTime, plus the other attributes initialized to 0
 		attendanceService.save(miAttendance);
 		
@@ -98,8 +104,12 @@ public class AttendanceController {
 	/* Controller to the button "Create & Add Another" that saves the object and redirects to the attendance creation
 	 * (params="actions=saveOther") equals to (value="saveOther") of "add.html"
 	 */
-	@RequestMapping(value="/edit", method=RequestMethod.POST, params="action=saveOther")
+	@RequestMapping(value="/save", method=RequestMethod.POST, params="action=saveOther")
 	public String saveOther(@Valid @ModelAttribute Attendance attendance, BindingResult result, Model model) {
+		
+		if(result.hasErrors()) {
+			return "views/add";
+		}
 		
 		// Save the attendance with the name and LocalDateTime, plus the other attributes initialized to 0
 		attendanceService.save(attendance);
@@ -110,7 +120,7 @@ public class AttendanceController {
 	/* Controller to the button "Cancel" that redirects to add.html resetting the inputs
 	 * (params="actions=cancel") equals to (value="cancel") of "add.html"
 	 */
-	@RequestMapping(value="/edit", method=RequestMethod.POST, params="action=cancel")
+	@RequestMapping(value="/save", method=RequestMethod.POST, params="action=cancel")
 	public String cancel(Model model) {
 		
 		// Create a new instance of our object Attendance to import name and LocalDateTime of our "add.html"
@@ -153,6 +163,28 @@ public class AttendanceController {
 	public String exportImport() {
 		
 		return "views/exportImport";
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String editar(@PathVariable("id") Long idAttendance, Model model) {
+
+		Attendance attendance = null;
+
+		if (idAttendance > 0) {
+			attendance = attendanceService.buscarPorId(idAttendance);
+
+			if (attendance == null) {
+				System.out.println("Error el id no existe");
+				return "redirect:/";
+			}
+		} else {
+			System.out.println("Error con el id");
+			return "redirect:/";
+		}
+		
+		model.addAttribute("attendance", attendance);
+
+		return "views/add";
 	}
 	
 }
