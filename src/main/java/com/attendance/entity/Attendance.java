@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -40,7 +42,7 @@ public class Attendance implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
+	@NotEmpty(message="You have to enter a Name")
 	private String name;
 
 	// Java annotation that defines the minimum value to 0
@@ -60,6 +62,7 @@ public class Attendance implements Serializable {
 	private int leftEarly;
 	
 	// Java annotation that defines the pattern of the LocalDateTime to (yyyy-MM-dd'T'HH:mm)
+	@NotNull(message="You have to enter a Date")
     @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime dateTime;
     

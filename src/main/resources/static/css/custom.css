@@ -100,3 +100,8 @@
 	padding-bottom:5px;
 	padding-left:8px;
 }
+
+.error, .error:hover{
+	color:red;
+	text-decoration: none;
+}

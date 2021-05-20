@@ -15,8 +15,11 @@
 			<a class="me-2 link" th:text="${name}"></a>
 			<a th:text="${date}"></a>
 			
-			
-			<img class="pencil" src="/images/pencil.png">
+			<form th:object="${attendance}" method="post">
+				<a th:href="@{/views/editar/} + ${id}"><img class="pencil" 
+				 	src="/images/pencil.png">
+				</a>	 
+			</form>
 			
 		</div>
 		
