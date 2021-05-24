@@ -8,16 +8,18 @@ import org.springframework.stereotype.Service;
 import com.attendance.entity.Attendance;
 import com.attendance.repository.AttendanceRepository;
 
+// Java annotation that defines the class as a Service
 @Service
+
 public class AttendanceServiceImp implements IAttendanceService {
 	
 	// Import Attendance Repository by using the @Autowired
 	@Autowired
 	private AttendanceRepository attendanceRepository;
 
-	// Method listarTodos() to return a list of Attendances
+	// Method listAll() to return a list of Attendances
 	@Override
-	public List<Attendance> listarTodos() {		
+	public List<Attendance> listAll() {		
 		return (List<Attendance>)attendanceRepository.findAll();
 	}
 	
@@ -27,9 +29,9 @@ public class AttendanceServiceImp implements IAttendanceService {
 		attendanceRepository.save(attendance);	
 	}
 
-	// Method buscarPorId() that search in the server by Id of the Attendance
+	// Method searchById() that search in the server by Id of the Attendance
 	@Override
-	public Attendance buscarPorId(Long id) {
+	public Attendance searchById(Long id) {
 		return attendanceRepository.findById(id).orElse(null);
 	}
 

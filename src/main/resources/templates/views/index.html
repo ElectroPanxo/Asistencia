@@ -2,26 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 	<!-- th:replace to use the head of our template -->
-	<head th:replace="plantilla/template :: head"></head>
+	<head th:replace="template/template :: head"></head>
 	
 	<body class="container">	
 		
-		<!-- Navbar with 4 buttons inherited from (plantilla/template.html) -->
-		<div th:replace="plantilla/template :: navbar"></div>	
+		
+		<!-- Navigation bar with 4 buttons inherited from (template/template.html) -->
+		<div th:replace="template/template :: navbar"></div>	
 		
 		<br>
 		
-		<div class="bold">
-			<a class="me-2 link" th:text="${name}"></a>
-			<a th:text="${date}"></a>
+		<!-- Form that involves the date, name and pencil image -->
+		<form th:object="${attendance}" method="post">
+			<div class="bold extended">
 			
-			<form th:object="${attendance}" method="post">
-				<a th:href="@{/views/editar/} + ${id}"><img class="pencil" 
+				<!-- Text imported by Thymeleaf that shows the name and date -->
+				<a class="me-2 link" th:text="${name}"></a>
+				<a th:text="${date}"></a>
+			
+					<!-- Image "pencil.png" when click redirects to edit controller "edit" -->
+					<a th:href="@{/views/edit/} + ${id}"><img class="pencil" 
 				 	src="/images/pencil.png">
-				</a>	 
-			</form>
-			
-		</div>
+					</a>	 		
+			</div>
+		</form>
 		
 		<p class="take">Take Attendance</p>
 		
@@ -90,6 +94,7 @@
 		
 		<br>
 		<br>
+		
 		<a class="take link">Attendance Item Statistics</a>
 		<img class="refresh" src="/images/refresh.png">
 		
@@ -97,6 +102,7 @@
 		
 		<br>
 		
+		<!-- Table which shows the attributes of the attendance -->
 		<table class="table-sm tabla2">
   			<thead>
     			<tr>
@@ -110,6 +116,8 @@
   			
   			<tbody>
   				<tr>
+  				
+  					<!-- Text imported by Thymeleaf that shows present, absent, excused, late and leftEarly -->
   					<td class="th2" th:text="${present}"></td>
   					<td class="th2" th:text="${absent}"></td>
   					<td class="th2" th:text="${excused}"></td>
@@ -121,7 +129,7 @@
 		
 				
 		<!-- Footer with 3 scripts of JavaScript -->
-		<footer th:replace="plantilla/template :: footer"></footer>
+		<footer th:replace="template/template :: footer"></footer>
 
 	</body>
 </html>

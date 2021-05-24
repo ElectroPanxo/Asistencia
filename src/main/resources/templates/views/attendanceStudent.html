@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 	<!-- th:replace to use the head of our template -->
-	<head th:replace="plantilla/template :: head"></head>
+	<head th:replace="template/template :: head"></head>
 	
 	<body class="container">	
 		
-		<!-- Navbar with 4 buttons inherited from (plantilla/template.html) -->
-		<div th:replace="plantilla/template :: navbar"></div>
+		<!-- Navigation bar with 4 buttons inherited from (template/template.html) -->
+		<div th:replace="template/template :: navbar"></div>
 		
 		<br>
 		
@@ -41,7 +41,7 @@
     				<!-- () -->
     				<th scope="row" th:text="${s.photo}"></th>
     				
-    				<!-- (s.name equals to name of the student) -->
+    				<!-- () -->
 					<td th:text="${s.name}"></td>
 					
 					<!-- (s.present equals to present of the student) -->
@@ -64,7 +64,7 @@
 		</table>
 		
 		<!-- Footer with 3 scripts of JavaScript -->
-		<footer th:replace="plantilla/template :: footer"></footer>
+		<footer th:replace="template/template :: footer"></footer>
 
 	</body>
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="plantilla/template :: head"></head>
+<head th:replace="template/template :: head"></head>
 
 <body class="container">
 
-	<!-- (header) Navbar with 3 buttons inherited from (plantilla/template.html) -->
-	<header th:replace="plantilla/template :: navbar"></header>
+	<!-- Navigation bar with 4 buttons inherited from (template/template.html) -->
+	<div th:replace="template/template :: navbar"></div>
 
 
 
@@ -18,7 +18,7 @@
 			<label><input type="checkbox" th:value="include">Include
 				columns in exported file for attendance comments</label> <br><br>
 				<label><input
-				type="checkbox" th:value="noInclude">Export blank atendance
+				type="checkbox" th:value="noInclude">Export blank attendance
 				spreadsheet</label> <br><br> <input type="submit"
 				value="Export Attendance Sheet">
 
@@ -53,7 +53,7 @@
 
 
 	<!-- Footer with a script of JavaScript -->
-	<footer th:replace="plantilla/template :: footer"></footer>
+	<footer th:replace="template/template :: footer"></footer>
 
 </body>
 </html>
