@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 // Java annotation that defines the class as an Entity
 @Entity
 
-// Defines which table will have the entity
+// Defines which table will have the entity ("attendance")
 @Table(name = "attendance")
 
 // Group of Java annotations that allow "getters", "setters" and "toString()" to not appear in the code
@@ -39,9 +39,13 @@ public class Attendance implements Serializable {
 
 	// Java annotation that defines which attribute will be main key
 	@Id
+	
+	// Java annotation that defines that the attribute will be generated automatically
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	/* Java annotation that defines that the attribute cannot be empty, if that occurs it will show
+	a message */
 	@NotEmpty(message="You have to enter a Name")
 	private String name;
 
@@ -61,8 +65,11 @@ public class Attendance implements Serializable {
 	@Min(0)
 	private int leftEarly;
 	
-	// Java annotation that defines the pattern of the LocalDateTime to (yyyy-MM-dd'T'HH:mm)
+	/* Java annotation that defines that the attribute cannot be "null" value, if that occurs it will show
+	a message */
 	@NotNull(message="You have to enter a Date")
+	
+	// Java annotation that defines the pattern of the LocalDateTime to (yyyy-MM-dd'T'HH:mm)
     @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime dateTime;
     

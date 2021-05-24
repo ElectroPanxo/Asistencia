@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 	<!-- th:replace to use the head of our template -->
-	<head th:replace="plantilla/template :: head"></head>
+	<head th:replace="template/template :: head"></head>
 	
 	<body class="container">	
 		
-		<!-- Navbar with 4 buttons inherited from (plantilla/template.html) -->
-		<div th:replace="plantilla/template :: navbar"></div>	
+		<!-- Navigation bar with 4 buttons inherited from (template/template.html) -->
+		<div th:replace="template/template :: navbar"></div>	
 		
 		<br>
 		
@@ -54,7 +54,7 @@
     				<th scope="row" ><a
                         th:href="@{index/} + ${a.id}" th:text="${a.name}"></a></th>
                         
-                    <!-- Field that use the method [checkDate()] to format the Date -->    
+                    <!-- Field that use the method [checkDate()] to get the formated Date -->    
 					<td th:text="${a.checkDate()}"></td>	
 					
 					<!-- (a.present equals to present of the attendance) -->	
@@ -77,7 +77,7 @@
 		</table>
 		
 		<!-- Footer with 3 scripts of JavaScript -->
-		<footer th:replace="plantilla/template :: footer"></footer>
+		<footer th:replace="template/template :: footer"></footer>
 
 	</body>
 </html>

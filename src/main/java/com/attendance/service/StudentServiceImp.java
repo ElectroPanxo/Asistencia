@@ -8,16 +8,18 @@ import org.springframework.stereotype.Service;
 import com.attendance.entity.Student;
 import com.attendance.repository.StudentRepository;
 
+// Java annotation that defines the class as a Service
 @Service
+
 public class StudentServiceImp implements IStudentService{
 
 	// Import Student Repository by using the @Autowired
 	@Autowired
 	private StudentRepository studentRepository;
 
-	// Method listarTodos() to return a list of Students
+	// Method listAll() to return a list of Students
 	@Override
-	public List<Student> listarTodos() {	
+	public List<Student> listAll() {	
 		return (List<Student>)studentRepository.findAll();
 	}
 
@@ -29,7 +31,7 @@ public class StudentServiceImp implements IStudentService{
 
 	// Method buscarPorId() that search in the server by Id of the Student
 	@Override
-	public Student buscarPorId(Long id) {
+	public Student searchById(Long id) {
 		return studentRepository.findById(id).orElse(null);
 	}
 
