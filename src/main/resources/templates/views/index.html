@@ -53,7 +53,7 @@
     			<tr th:each="s: ${student}">	
     			
     				<!-- () -->
-    				<th scope="row" th:text="${s.photo}"></th>
+    				<th scope="row"><img style="width: 60px;" th:src="@{${s.photo}}"></th>
     				
     				<!-- (s.name equals to name of the student) -->
 					<td th:text="${s.name}"></td>
