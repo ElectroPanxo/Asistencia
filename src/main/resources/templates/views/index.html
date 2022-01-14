@@ -57,11 +57,32 @@
     				
     				<!-- (s.name equals to name of the student) -->
 					<td th:text="${s.name}"></td>
+
+
+					<script>
+						function updatePresent(eID) {
+						$.ajax({
+							url: "updatepresent.php?id="+eID,
+							cache: false,
+							success: function(data) {
+									// page loaded successfully, do any additionally coding here
+							}
+							});
+						} // end function						
+					</script>
+					
+
 					
 					<!-- (s.present equals to present of the student) -->
 					<td>
-						<img class="checkmark" src="/images/checkmark.png">
+						<input type="button" value="Update Present" onclick="updatePresent(1);" />
 					</td>
+
+
+
+
+
+
 					
 					<!-- (s.absent equals to absent of the student) -->
 					<td>

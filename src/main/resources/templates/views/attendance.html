@@ -11,13 +11,12 @@
 		
 		<br>
 		
-		<h4><b>Take Attendance</b></h4>
+		<h4 style="font-weight: bold;" th:text="#{takeAttendance}"></h4>
 		<ul class="nav nav-tabs"></ul>
 		
 		<br>
 		
-		<a>Click on the <strong>Take attendance Now</strong> button to immediately take attendance. Click on a link below to take attendance for an existing event.</a>
-		
+		<a th:text="#{attendanceDescriptionA}"></a><a style="font-weight: bold;" th:text="#{attendanceDescriptionB}"></a><a th:text="#{attendanceDescriptionC}"></a>
 		<br>
 		<br>
 		
@@ -25,7 +24,7 @@
 		<a type="button"
 				class="btn btn-outline-dark"
 				href="/views/add" 
-				th:text="'Take Attendance Now'"></a>
+				th:text="#{crearReunion}"></a>
 
 		<br>
 		<br>
@@ -34,13 +33,13 @@
 		<table class="table table-hover center">
   			<thead>
     			<tr>
-					<th scope="col">Attendance Item</th>
-     			    <th scope="col">Date</th>
-      				<th scope="col">Present</th>
-      				<th scope="col">Absent</th>
-      				<th scope="col">Excused</th>
-      				<th scope="col">Late</th>
-      				<th scope="col">Left Early</th>
+					<th scope="col" th:text="#{attendanceItem}"></th>
+     			    <th scope="col" th:text="#{date}"></th>
+      				<th scope="col" th:text="#{present}"></th>
+      				<th scope="col" th:text="#{absent}"></th>
+      				<th scope="col" th:text="#{excused}"></th>
+      				<th scope="col" th:text="#{late}"></th>
+      				<th scope="col" th:text="#{leftEarly}"></th>
     			</tr>
   			</thead>
   			
@@ -75,7 +74,9 @@
   
   			</tbody>
 		</table>
-		
+		<a href="#" th:href="@{''(lang=es_ES)}" th:text="#{lang.es}">Español</a>
+		<a href="#" th:href="@{''(lang=en_GB)}" th:text="#{lang.en}">Inglés</a>
+
 		<!-- Footer with 3 scripts of JavaScript -->
 		<footer th:replace="template/template :: footer"></footer>
 
